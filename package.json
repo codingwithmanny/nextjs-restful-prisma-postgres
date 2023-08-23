@@ -12,7 +12,9 @@
     "db:migrate": "npx prisma migrate dev",
     "db:generate": "npx prisma generate",
     "db:studio": "npx prisma studio",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:backup": "docker exec restful-db-1 pg_dumpall -U postgres -c > db/dbbackup-$(date +\"%Y_%m_%d\").sql",
+    "db:import": "docker cp db/dbbackup-2023_08_22.sql restful-db-1:tmp/dbbackup-2023_08_22.sql; docker exec restful-db-1 psql -U postgres -f tmp/dbbackup-2023_08_22.sql postgres"
   },
   "dependencies": {
     "@prisma/client": "5.1.1",

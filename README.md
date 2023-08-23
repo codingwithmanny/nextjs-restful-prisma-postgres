@@ -69,6 +69,23 @@ pnpm db:generate;
 pnpm db:seed;
 ```
 
+### Database Backup
+
+```bash
+# FROM: ./
+
+pnpm db:backup;
+# Note the file output in the db directory for db:import
+```
+
+### Database Import
+
+```bash
+# FROM: ./
+
+pnpm db:import;
+```
+
 ### Running Local Server
 
 ```bash
